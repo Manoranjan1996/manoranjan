@@ -1,0 +1,21 @@
+.menu {
+  width: 80%;
+  text-align: center;
+  position: fixed;
+  height: -100vh;
+  background-color: yellow;
+  list-style: none;
+  transition: 0.5%;
+}
+.menu ul li {
+  list-style: none;
+  padding: 10px 0%;
+}
+.activeMenu {
+  left: 0%;
+}
+.micon {
+  position: absolute;
+
+  right: 10px;
+}

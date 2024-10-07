@@ -1,0 +1,12 @@
+form {
+  width: 1170;
+  margin: auto;
+  display: flex;
+}
+
+form input {
+  flex-basis: 80%;
+}
+form button {
+  flex-basis: 20%;
+}

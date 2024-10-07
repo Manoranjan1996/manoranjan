@@ -1,0 +1,21 @@
+.face {
+  width: 123px;
+  margin: auto;
+}
+.faceItems {
+  border: 1px solid red;
+}
+.faceItems h2 {
+  margin: 0px;
+  padding: 10px;
+  background-color: aquamarine;
+  color: white;
+  text-align: left;
+}
+.faceItems p {
+  text-align: left;
+  height: 0px;
+  margin: 0px;
+  transform: scaleY(0);
+  padding: 0px;
+}
