@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Events</title>
+    <script src="one.js"></script>
+  </head>
+  <body>
+    <h1>Radhy Radhy</h1>
+    <button id="Stop">Stop</button>
+  </body>
+  <script>
+    const sayManoj = function () {
+      console.log("Manoj");
+    };
+    const changeText = function () {
+      document.querySelector("h1").innerHTML = "best JS Series";
+    };
+
+    const changeMe = setTimeout(sayManoj, 2000);
+
+    document.querySelector("#stop").addEventListener("click", function () {
+      clearTimeout(changeMe);
+      console.log("STOPED");
+    });
+  </script>
+</html>
