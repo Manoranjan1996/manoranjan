@@ -24,6 +24,10 @@
   </head>
   <body>
     <header>
+      <a href="#" class="menu" onclick="toggleMenu()"
+        ><ion-icon class="open" name="menu-outline"></ion-icon
+        ><ion-icon class="close" name="close-outline"></ion-icon
+      ></a>
       <a
         href="#"
         class="logo nav-btn"
@@ -31,10 +35,7 @@
         onclick="resetHeader()"
         >Wedding</a
       >
-      <a href="#" class="menu" onclick="toggleMenu()"
-        ><ion-icon class="open" name="menu-outline"></ion-icon
-        ><ion-icon class="close" name="close-outline"></ion-icon
-      ></a>
+
       <ul class="nav">
         <li>
           <a
@@ -43,7 +44,7 @@
             data-target="home"
             onclick="resetHeader()"
           >
-            ><ion-icon name="home-outline"></ion-icon
+            <ion-icon name="home-outline"></ion-icon
           ></a>
         </li>
         <li><a class="nav-btn" href="#" data-target="about">about</a></li>
