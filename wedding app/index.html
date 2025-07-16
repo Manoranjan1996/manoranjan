@@ -19,30 +19,46 @@
       href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
     />
     <link rel="stylesheet" href="./css/style.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <title>Weddding</title>
   </head>
   <body>
     <header>
-      <a href="/" class="logo">Wedding</a>
+      <a
+        href="#"
+        class="logo nav-btn"
+        data-target="home"
+        onclick="resetHeader()"
+        >Wedding</a
+      >
       <a href="#" class="menu" onclick="toggleMenu()"
         ><ion-icon class="open" name="menu-outline"></ion-icon
         ><ion-icon class="close" name="close-outline"></ion-icon
       ></a>
       <ul class="nav">
         <li>
-          <a class="nav-btn active" href="/" onclick="reseHeader()"
+          <a
+            class="nav-btn active"
+            href="#"
+            data-target="home"
+            onclick="resetHeader()"
+          >
             ><ion-icon name="home-outline"></ion-icon
           ></a>
         </li>
         <li><a class="nav-btn" href="#" data-target="about">about</a></li>
-        <li><a class="nav-btn" href="#" data-target="services">services</a></li>
+        <li>
+          <a class="nav-btn" href="#" data-target="services">services</a>
+        </li>
         <li>
           <a class="nav-btn" href="#" data-target="portfolio">Portfolio</a>
         </li>
-        <li><a class="nav-btn" href="#" data-target="contact">contact</a></li>
+        <li>
+          <a class="nav-btn" href="#" data-target="contact">contact</a>
+        </li>
       </ul>
       <div class="search">
-        <input type="text" placeholder="search..." />
+        <input type="text" placeholder="Search..." />
         <ion-icon name="search-outline"></ion-icon>
       </div>
     </header>
@@ -51,16 +67,26 @@
 
     <ul class="nav-mobile">
       <li>
-        <a href="/" class="nav-btn active" onclick="resetHeader()"
+        <a
+          href="#"
+          class="nav-btn active"
+          data-target="home"
+          onclick="resetHeader();"
           ><ion-icon name="home-outline"></ion-icon
         ></a>
       </li>
       <li><a href="#" data-target="about" class="nav-btn">about</a></li>
-      <li><a href="#" data-target="services" class="nav-btn">services</a></li>
-      <li><a href="#" data-target="portfolio" class="nav-btn">portfolio</a></li>
-      <li><a href="#" data-target="contact" class="nav-btn">contact</a></li>
+      <li>
+        <a href="#" data-target="services" class="nav-btn">services</a>
+      </li>
+      <li>
+        <a href="#" data-target="portfolio" class="nav-btn">portfolio</a>
+      </li>
+      <li>
+        <a href="#" data-target="contact" class="nav-btn">contact</a>
+      </li>
     </ul>
-
+    <!-- Banner -->
     <div class="banner container-fluid">
       <div class="bg-slide slide-1 active">
         <div class="contant">
@@ -150,7 +176,7 @@
             </textPath>
           </text>
         </svg>
-        <a href="#" class="move-down">
+        <a href="#" class="move-down" onclick="initNavigation();">
           <ion-icon name="chevron-down-outline"></ion-icon>
         </a>
       </div>
@@ -164,8 +190,8 @@
           <div class="row">
             <div class="col-lg-6">
               <div class="img-box">
-                <img src="./image/about-1.jpg" alt="" class="img-fluid" />
-                <img src="./image/about-2.jpg" alt="" class="corner-img" />
+                <img src="./image/about-1.jpg" alt="image" class="img-fluid" />
+                <img src="./image/about-2.jpg" alt="image" class="corner-img" />
               </div>
             </div>
             <div class="col-lg-6">
@@ -277,13 +303,13 @@
                 />
               </div>
               <div class="portfolio-info">
-                <h4>Wedding Planning-1</h4>
-                <p>Wedding Planning-1</p>
+                <h4>Wedding Planning 1</h4>
+                <p>Wedding Planning 1</p>
                 <a
                   href="./image/portfolio/portfolio-1.jpg"
                   data-gallery="portfolioGallery"
                   class="portfolio-lightbox preview-link"
-                  title="Weddding Planning-1"
+                  title="Weddding Planning 1"
                   ><ion-icon name="add-outline"></ion-icon
                 ></a>
                 <a href="#" class="details-link" title="More Details"
@@ -303,13 +329,181 @@
                 />
               </div>
               <div class="portfolio-info">
-                <h4>Wedding Planning-1</h4>
-                <p>Wedding Planning-1</p>
+                <h4>Weddding Planning</h4>
+                <p>Weddding Planning</p>
                 <a
                   href="./image/portfolio/portfolio-2.jpg"
                   data-gallery="portfolioGallery"
                   class="portfolio-lightbox preview-link"
-                  title="Weddding Planning-1"
+                  title="Honeymoon Planning-1"
+                  ><ion-icon name="add-outline"></ion-icon
+                ></a>
+                <a href="#" class="details-link" title="More Details"
+                  ><ion-icon name="link-outline"></ion-icon
+                ></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-ceremony">
+              <div class="portfolio-img">
+                <img
+                  src="./image/portfolio/portfolio-3.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+              </div>
+              <div class="portfolio-info">
+                <h4>Ceremony Planning</h4>
+                <p>Ceremony Planning</p>
+                <a
+                  href="./image/portfolio/portfolio-3.jpg"
+                  data-gallery="portfolioGallery"
+                  class="portfolio-lightbox preview-link"
+                  title="Honeymoon Planning-1"
+                  ><ion-icon name="add-outline"></ion-icon
+                ></a>
+                <a href="#" class="details-link" title="More Details"
+                  ><ion-icon name="link-outline"></ion-icon
+                ></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-weddding">
+              <div class="portfolio-img">
+                <img
+                  src="./image/portfolio/portfolio-4.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+              </div>
+              <div class="portfolio-info">
+                <h4>Weddding Planning</h4>
+                <p>Weddding Planning</p>
+                <a
+                  href="./image/portfolio/portfolio-4.jpg"
+                  data-gallery="portfolioGallery"
+                  class="portfolio-lightbox preview-link"
+                  title="Honeymoon Planning-1"
+                  ><ion-icon name="add-outline"></ion-icon
+                ></a>
+                <a href="#" class="details-link" title="More Details"
+                  ><ion-icon name="link-outline"></ion-icon
+                ></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-ceremony">
+              <div class="portfolio-img">
+                <img
+                  src="./image/portfolio/portfolio-5.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+              </div>
+              <div class="portfolio-info">
+                <h4>Ceremony Planning</h4>
+                <p>Ceremony Planning</p>
+                <a
+                  href="./image/portfolio/portfolio-5.jpg"
+                  data-gallery="portfolioGallery"
+                  class="portfolio-lightbox preview-link"
+                  title="Honeymoon Planning-1"
+                  ><ion-icon name="add-outline"></ion-icon
+                ></a>
+                <a href="#" class="details-link" title="More Details"
+                  ><ion-icon name="link-outline"></ion-icon
+                ></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-ceremony">
+              <div class="portfolio-img">
+                <img
+                  src="./image/portfolio/portfolio-6.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+              </div>
+              <div class="portfolio-info">
+                <h4>Ceremony Planning</h4>
+                <p>Ceremony Planning</p>
+                <a
+                  href="./image/portfolio/portfolio-6.jpg"
+                  data-gallery="portfolioGallery"
+                  class="portfolio-lightbox preview-link"
+                  title="Honeymoon Planning-1"
+                  ><ion-icon name="add-outline"></ion-icon
+                ></a>
+                <a href="#" class="details-link" title="More Details"
+                  ><ion-icon name="link-outline"></ion-icon
+                ></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-honeymoon">
+              <div class="portfolio-img">
+                <img
+                  src="./image/portfolio/portfolio-7.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+              </div>
+              <div class="portfolio-info">
+                <h4>Honeymoon Planning</h4>
+                <p>Honeymoon Planning</p>
+                <a
+                  href="./image/portfolio/portfolio-7.jpg"
+                  data-gallery="portfolioGallery"
+                  class="portfolio-lightbox preview-link"
+                  title="Honeymoon Planning-1"
+                  ><ion-icon name="add-outline"></ion-icon
+                ></a>
+                <a href="#" class="details-link" title="More Details"
+                  ><ion-icon name="link-outline"></ion-icon
+                ></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-honeymoon">
+              <div class="portfolio-img">
+                <img
+                  src="./image/portfolio/portfolio-8.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+              </div>
+              <div class="portfolio-info">
+                <h4>Honeymoon Planning</h4>
+                <p>Honeymoon Planning</p>
+                <a
+                  href="./image/portfolio/portfolio-8.jpg"
+                  data-gallery="portfolioGallery"
+                  class="portfolio-lightbox preview-link"
+                  title="Honeymoon Planning-1"
+                  ><ion-icon name="add-outline"></ion-icon
+                ></a>
+                <a href="#" class="details-link" title="More Details"
+                  ><ion-icon name="link-outline"></ion-icon
+                ></a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-honeymoon">
+              <div class="portfolio-img">
+                <img
+                  src="./image/portfolio/portfolio-9.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+              </div>
+              <div class="portfolio-info">
+                <h4>Honeymoon Planning</h4>
+                <p>Honeymoon Planning</p>
+                <a
+                  href="./image/portfolio/portfolio-9.jpg"
+                  data-gallery="portfolioGallery"
+                  class="portfolio-lightbox preview-link"
+                  title="Honeymoon Planning-1"
                   ><ion-icon name="add-outline"></ion-icon
                 ></a>
                 <a href="#" class="details-link" title="More Details"
@@ -330,9 +524,10 @@
           <div>
             <iframe
               style="border: 0; width: 100%; height: 270px"
-              src="https://www.google.com/maps/place/Balasore,+Odisha/@21.4913854,86.8820678,9299m/data=!3m1!1e3!4m6!3m5!1s0x3a1c5f84f036e035:0x5cd332bf1c70157c!8m2!3d21.4933578!4d86.9134794!16zL20vMDUyeW5t?authuser=0&entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D"
-              frameborder="0"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45168.35252936845!2d86.91915935!3d21.48940750000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1c5f84f036e035%3A0x5cd332bf1c70157c!2sBalasore%2C%20Odisha!5e1!3m2!1sen!2sin!4v1739799845310!5m2!1sen!2sin"
               allowfullscreen
+              frameborder="0"
+              loading="lazy"
             ></iframe>
           </div>
           <div class="row mt-5">
@@ -424,5 +619,6 @@
     <script src="./js/main.js"></script>
     <script src="./js/glightbox.js"></script>
     <script src="./js/isotope.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   </body>
 </html>

@@ -38,15 +38,31 @@ window.addEventListener("load", () => {
 //activate section
 
 const sectionNavigator = (name) => {
-  let sections = document.querySelectorAll(".section");
+  console.log("Navigating to section:", name);
+  let sections = document.querySelectorAll("section");
   let header = document.querySelector("header");
+  let banner = document.querySelector(".banner");
+
+  // Hide all sections
   sections.forEach((section) => {
     section.classList.remove("section-show");
-    if (section.classList.contains(name)) {
-      section.classList.add("section-show");
-      header.classList.add("active");
-    }
   });
+
+  // Show the section by ID
+  const targetSection = document.getElementById(name);
+  if (targetSection) {
+    targetSection.classList.add("section-show");
+    header.classList.add("active");
+  }
+
+  // Hide banner when a section is active
+  if (banner) {
+    if (name === "home") {
+      banner.style.display = "flex";
+    } else {
+      banner.style.display = "none";
+    }
+  }
 };
 
 // Call the sectionNavigator function with the data-target attribute
@@ -60,16 +76,34 @@ window.addEventListener("load", () => {
       });
       this.classList.add("active");
       sectionNavigator(this.getAttribute("data-target"));
-      screen.width < 768 && toggleMenu;
+      toggleMenu();
     });
   });
+
+  // Initialize AOS library
+  if (typeof AOS !== "undefined") {
+    AOS.init();
+  }
 });
 
 //reset header to initali state
 
 const resetHeader = () => {
+  console.log("Resetting header to home");
   let header = document.querySelector("header");
   header.classList.remove("active");
+
+  // Hide all sections
+  let sections = document.querySelectorAll("section");
+  sections.forEach((section) => {
+    section.classList.remove("section-show");
+  });
+
+  // Show banner (home)
+  let banner = document.querySelector(".banner");
+  if (banner) {
+    banner.style.display = "flex"; // or remove any hiding styles
+  }
 };
 
 const initNavigation = () => {
@@ -88,6 +122,11 @@ const initNavigation = () => {
 const toggleMenu = () => {
   const menu = document.querySelector(".menu");
   const navMobile = document.querySelector(".nav-mobile");
+  console.log("Menu:", menu);
+  console.log("Nav Menu:", navMobile);
+  if (!menu || !navMobile) {
+    console.log("not work");
+  }
   menu.classList.toggle("active");
   navMobile.classList.toggle("active");
 };
