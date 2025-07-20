@@ -65,27 +65,6 @@ const sectionNavigator = (name) => {
   }
 };
 
-// Call the sectionNavigator function with the data-target attribute
-window.addEventListener("load", () => {
-  const navList = document.querySelectorAll(".nav-btn");
-  navList.forEach((nav) => {
-    nav.addEventListener("click", function (e) {
-      e.preventDefault();
-      navList.forEach((el) => {
-        el.classList.remove("active");
-      });
-      this.classList.add("active");
-      sectionNavigator(this.getAttribute("data-target"));
-      toggleMenu();
-    });
-  });
-
-  // Initialize AOS library
-  if (typeof AOS !== "undefined") {
-    AOS.init();
-  }
-});
-
 //reset header to initali state
 
 const resetHeader = () => {
@@ -130,3 +109,56 @@ const toggleMenu = () => {
   menu.classList.toggle("active");
   navMobile.classList.toggle("active");
 };
+
+document.addEventListener("DOMContentLoaded", function () {
+  const navBtns = document.querySelectorAll(".nav-btn");
+
+  navBtns.forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const target = btn.getAttribute("data-target");
+      if (!target) return;
+
+      // Remove 'active' from all nav-btns in both menus
+      document
+        .querySelectorAll(".nav-btn")
+        .forEach((b) => b.classList.remove("active"));
+
+      // Add 'active' to all nav-btns with the same data-target
+      document
+        .querySelectorAll(`.nav-btn[data-target="${target}"]`)
+        .forEach((b) => b.classList.add("active"));
+
+      // Hide all sections
+      document.querySelectorAll("section").forEach((section) => {
+        section.classList.remove("section-show");
+      });
+
+      // Show the target section
+      const section = document.getElementById(target);
+      if (section) {
+        section.classList.add("section-show");
+      }
+
+      // Show/hide banner
+      const banner = document.querySelector(".banner");
+      if (banner) {
+        if (target === "home") {
+          banner.style.display = "flex";
+        } else {
+          banner.style.display = "none";
+        }
+      }
+
+      // Optionally close mobile menu if open
+      document.querySelector(".menu")?.classList.remove("active");
+      document.querySelector(".nav-mobile")?.classList.remove("active");
+    });
+  });
+
+  // Initialize AOS library
+  if (typeof AOS !== "undefined") {
+    AOS.init();
+  }
+});
