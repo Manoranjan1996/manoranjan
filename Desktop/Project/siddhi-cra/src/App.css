@@ -1,0 +1,262 @@
+/* App.css - corrected to support overlapping Continue button */
+
+/* root & base */
+:root {
+  --pink: #e54866;
+  --indigo: #5b2fa7;
+  --header-grad: linear-gradient(90deg, #e54866 0%, #6456c8 50%, #6a47a9 100%);
+}
+
+* { box-sizing: border-box; }
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, system-ui, Arial;
+  background: #f2f4f6;
+  color: #111;
+}
+
+/* page container */
+.container {
+  max-width: 1200px;
+  margin: 18px auto;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(20, 30, 40, 0.08);
+}
+
+/* header */
+.top-header {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background: var(--header-grad);
+  color: white;
+}
+.brand { font-weight: 700; font-size: 18px; margin-right: 18px; }
+.search input { width: 520px; padding: 10px 16px; border-radius: 999px; border: none; outline: none; }
+.notif { margin-left: auto; }
+
+/* layout left-nav */
+.body { display: flex; }
+.left-nav {
+  width: 88px;
+  padding: 22px 10px;
+  border-right: 1px solid #eef2f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  background: #fbfdff;
+}
+.nav-icon {
+  width: 56px;
+  height: 56px;
+  background: white;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.05);
+  cursor: pointer;
+}
+.nav-text { margin-top: 4px; font-size: 12px; color: #6b7280; }
+
+/* main area */
+.main-area { flex: 1; padding: 22px; }
+.hero {
+  height: 560px;
+  border-radius: 12px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden; /* fine because Continue is OUTSIDE the hero */
+}
+.hero-inner {
+  position: relative;
+  height: 100%;
+  padding: 28px;
+  color: white;
+}
+.hero-title { font-size: 24px; font-weight: 700; margin: 0 0 6px 0; }
+.hero-sub { margin: 0 0 20px 0; opacity: 0.95; font-size: 13px; }
+
+/* inputs & form */
+.new-form { display: flex; flex-direction: column; gap: 14px; }
+.input-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.input-group { position: relative; width: 100%; display: flex; align-items: center; }
+
+/* inputs */
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 12px 14px;
+  padding-left: 14px;
+  border-radius: 10px;
+  border: 1px solid #e6eef4;
+  background: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: box-shadow 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
+}
+.input-group input[type="date"] { padding-left: 12px; }
+
+/* floating labels */
+.input-group label,
+.input-group .float-label {
+  position: absolute;
+  pointer-events: none;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  padding: 0 6px;
+  color: #6b7280;
+  font-size: 13px;
+  transition: transform 0.15s ease, top 0.15s ease, font-size 0.15s ease, color 0.15s ease;
+}
+
+/* float up when focused or has value */
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group input:valid + label,
+.input-group select:focus + .float-label,
+.input-group select[data-has="true"] + .float-label {
+  top: -8px;
+  transform: none;
+  font-size: 11px;
+  color: #374151;
+  background: white;
+}
+
+/* focus styles */
+.input-group input:focus,
+.input-group select:focus {
+  border-color: rgba(227, 72, 99, 0.95);
+  box-shadow: 0 6px 18px rgba(227, 72, 99, 0.12);
+}
+
+/* phone group */
+.phone-group {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: center;
+}
+.phone-group .country-pill {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #f3f6f9;
+  border: 1px solid #e6eef4;
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.phone-group label { left: calc(14px + 68px); }
+
+/* small screens */
+@media (max-width: 640px) {
+  .phone-group label { left: calc(14px + 56px); }
+  .input-grid { gap: 10px; }
+}
+
+/* form card */
+.form-card {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  background: white;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(6, 10, 18, 0.15);
+  color: #111;
+  z-index: 40; /* sits behind overlapping button */
+}
+.form-card .logo img {
+  height: 80px; /* keep your desired size */
+  display: block;
+  margin: 0 auto 6px;
+}
+.form-title { text-align: center; color: #444; font-size: 14px; margin-bottom: 8px; }
+
+.fields { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+.field .label { font-size: 12px; color: #6b7280; margin-bottom: 6px; }
+.field input, .field select { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #e6eef4; font-size: 14px; }
+
+.btn-continue {
+  margin-top: 8px;
+  background: #e34863;
+  color: white;
+  padding: 11px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* right portrait */
+.hero-right {
+  position: absolute;
+  right: 48px;
+  top: 90px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+}
+.hero-right img { width: 140px; height: 140px; object-fit: cover; border-radius: 50%; }
+
+/* footer */
+.footer { padding: 16px; text-align: center; color: #9aa5b0; font-size: 13px; }
+
+/* --------------- Continue button (separate - overlap style) --------------- */
+/* Use this when the button is placed OUTSIDE the .hero element */
+.continue-wrap.overlap {
+  max-width: 380px;                /* match .form-card width */
+  margin: -12px auto 36px;         /* negative top margin pulls it up to overlap */
+  display: flex;
+  justify-content: center;
+  padding: 0 12px;
+  z-index: 50;                     /* appear above hero/card */
+  position: relative;
+}
+
+.btn-continue.overlap-btn,
+.btn-continue.separated {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 800;
+  font-size: 15px;
+  color: white;
+  background: linear-gradient(90deg,#e54866 0%, #6a47a9 100%);
+  box-shadow: 0 20px 40px rgba(99,37,120,0.20), 0 8px 20px rgba(0,0,0,0.12);
+  cursor: pointer;
+  transform: translateY(0);
+}
+
+/* fallback separate styling (if you keep .continue-wrap.separate) */
+.continue-wrap.separate { max-width: 380px; margin: 18px auto 36px; display:flex; justify-content:center; padding:0 16px; }
+.btn-continue.separated { padding: 12px 14px; border-radius: 12px; font-weight:700; box-shadow: 0 10px 26px rgba(106,71,169,0.18); }
+
+/* responsive tweaks for overlap and small screens */
+@media (max-width: 900px) {
+  .continue-wrap.overlap { max-width: 320px; margin: -22px auto 28px; }
+  .btn-continue.overlap-btn, .btn-continue.separated { padding: 12px 14px; font-size: 15px; }
+}
+@media (max-width: 420px) {
+  .continue-wrap.overlap { max-width: 90%; margin: -18px auto 80px; }
+  .btn-continue.overlap-btn, .btn-continue.separated { border-radius: 10px; }
+  .continue-wrap.separate { margin-bottom: 80px; }
+}
