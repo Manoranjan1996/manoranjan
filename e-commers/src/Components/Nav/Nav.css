@@ -1,0 +1,16 @@
+.navbar {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart span {
+  margin-left: 5px;
+}
+
+.nav-link {
+  color: #555;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
